@@ -96,6 +96,12 @@ input, select { min-width: 0; width: 100%; border: 1px solid var(--line); border
 .scan-card .profile-field { grid-column: 1 / -1; }
 .confidence { color: #f0c77c; font-size: .7rem; }
 
+.captain-list { display: grid; gap: 9px; }
+.captain-card { border: 1px solid #806632; border-radius: 8px; background: linear-gradient(145deg, #1b3034, #101d20); padding: 10px; }
+.captain-heading { display: flex; justify-content: space-between; gap: 8px; align-items: center; margin-bottom: 8px; color: var(--gold-2); }
+.captain-heading .check-row { margin: 0; color: var(--muted); font-weight: 400; }
+.captain-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; margin-top: 8px; }
+
 .roster-card { border: 1px solid var(--line); border-radius: 8px; background: var(--panel); padding: 10px; }
 .roster-head { display: grid; grid-template-columns: 40px 1fr auto; gap: 8px; align-items: center; }
 .roster-head img, .roster-placeholder { width: 40px; height: 40px; border-radius: 5px; background: #0a1518; object-fit: cover; }
@@ -112,6 +118,7 @@ input, select { min-width: 0; width: 100%; border: 1px solid var(--line); border
   .app-header .primary { grid-column: 1 / -1; width: 100%; }
   .field-grid { grid-template-columns: 1fr; }
   .field-grid .wide { grid-column: auto; }
+  .captain-stats { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 390px) {

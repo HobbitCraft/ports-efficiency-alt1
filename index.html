@@ -73,14 +73,14 @@
 
     <section id="tab-scan" class="tab-panel">
       <div class="section-heading">
-        <div><p class="step">Crew Roster reader</p><h2>Capture and identify icons</h2></div>
+        <div><p class="step">Crew Roster reader</p><h2>Find and identify your crew</h2></div>
         <button id="scan-button" class="primary" type="button">Scan screen</button>
       </div>
       <div class="callout">
-        <strong>Open Ports → Crew Roster first.</strong> At 100% interface scaling the app can use the default layout. If the slots miss, arm calibration, hover the centre of the first captain icon, and press Alt+1.
+        <strong>Open Ports → Crew Roster and keep the whole window visible.</strong> Scan screen searches the full RuneScape capture for the interface, matches known crew portraits, reads their levels, and calculates their level-scaled stats.
       </div>
       <div class="scan-actions">
-        <button id="calibrate-button" type="button">Arm Alt+1 calibration</button>
+        <button id="calibrate-button" type="button">Fallback: calibrate with Alt+1</button>
         <label>UI scale <select id="ui-scale"><option value="0.8">80%</option><option value="0.9">90%</option><option value="1" selected>100%</option><option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option><option value="1.4">140%</option></select></label>
       </div>
       <p id="scan-summary" class="hint">No scan in this session.</p>
@@ -90,13 +90,16 @@
 
     <section id="tab-roster" class="tab-panel">
       <div class="section-heading">
-        <div><p class="step">Saved locally</p><h2>Available captains and crew</h2></div>
-        <div class="button-row">
-          <button id="add-captain-button" type="button">Add captain</button>
-          <button id="add-crew-button" type="button">Add crew</button>
-        </div>
+        <div><p class="step">Set manually</p><h2>Your four captains</h2></div>
       </div>
-      <p class="hint">Exact-stat overrides are optional and should include personal bonuses or traits visible in game.</p>
+      <p class="hint">Enter the current totals shown in Ports. These values can include captain level boosts, personal bonuses, and traits.</p>
+      <div id="captain-list" class="captain-list"></div>
+      <div class="divider"></div>
+      <div class="section-heading">
+        <div><p class="step">Scanned and saved locally</p><h2>Available crew</h2></div>
+        <button id="add-crew-button" type="button">Add crew manually</button>
+      </div>
+      <p class="hint">Each level adds exactly 10% of base stats. Optional exact overrides can include personal bonuses or traits visible in game.</p>
       <div id="roster-list" class="roster-list"></div>
     </section>
 
@@ -113,11 +116,13 @@
       </div>
       <div class="divider"></div>
       <h2>Method and sources</h2>
-      <p class="hint">Success is the lowest of Morale, Combat, and Seafaring percentages. Crew levels scale base stats linearly to double at level 10. Solidarity is calculated from unique crew types plus the captain. The app never clicks or changes RuneScape.</p>
+      <p class="hint">Success is the lowest of Morale, Combat, and Seafaring percentages. Each crew level adds 10% of the unmodified base value, so level 10 is exactly double level 0. Solidarity is calculated from unique crew types plus the captain. The app never clicks or changes RuneScape.</p>
       <ul class="source-list">
         <li><a href="https://runescape.wiki/w/Player-owned_port/Captains_and_crew" target="_blank" rel="noreferrer">RuneScape Wiki: captains and crew</a></li>
         <li><a href="https://runescape.wiki/w/Player-owned_port/Strategies" target="_blank" rel="noreferrer">RuneScape Wiki: Ports strategies</a></li>
         <li><a href="https://runescape.wiki/w/User:Kags" target="_blank" rel="noreferrer">Kags' Player Owned Ports Encyclopedia V7</a></li>
+        <li><a href="https://www.youtube.com/watch?v=2QliZmT1T0I" target="_blank" rel="noreferrer">Jasper72: Player Owned Ports as Easy as Possible</a></li>
+        <li><a href="https://www.youtube.com/watch?v=3OU62tJaTkg" target="_blank" rel="noreferrer">ChevalricRS: Ultimate Player Owned Ports Guide</a></li>
       </ul>
     </section>
   </main>

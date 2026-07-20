@@ -19,13 +19,14 @@ Open this appconfig URL in Alt1:
 ## Set up the roster
 
 1. Open the Player-owned Ports **Crew Roster**.
-2. Open **Scan crew** and select the matching RuneScape interface scale.
+2. Keep the complete Crew Roster interface visible, then open **Scan crew** and select the matching RuneScape interface scale.
 3. Click **Scan screen**.
-4. If the grid is not aligned, click **Arm Alt+1 calibration**, hover the centre of the first captain icon, and press Alt+1.
-5. Check the captured portraits, identities, and levels before saving them.
-6. Use **Roster** to mark unavailable crew or enter exact stats that include visible bonuses and traits.
+4. The app searches the full RuneScape capture for the roster, then matches known portraits, reads the bottom-right crew levels, and records top-left ship assignments. Check uncertain matches before saving.
+5. If automatic location fails, use **Fallback: calibrate with Alt+1**, hover the centre of the first captain icon, and press Alt+1.
+6. In **Roster**, enter the current Morale, Combat, Seafaring, and Speed totals for each of your four captains.
+7. Mark unavailable crew or enter optional exact-stat overrides for visible bonuses and traits.
 
-Reviewed crew portraits are remembered for later scans. Ports uses a generic captain portrait, so captain tier and speciality must always be selected manually.
+Crew stats use the base value plus exactly 10% of that base for each level; boosts do not compound. For example, a Smuggler has 70 base Seafaring, gains 7 per level, and has 140 at level 10. Captains are kept separate because their displayed totals include their generated stats, level, traits, and personal bonuses.
 
 ## Optimise a voyage
 
@@ -46,6 +47,8 @@ The app does not click RuneScape, assign crew, or send voyages.
 - [RuneScape Wiki — Player-owned port strategies](https://runescape.wiki/w/Player-owned_port/Strategies)
 - [RuneScape Wiki — Optimal set-up calculator](https://runescape.wiki/w/Module:Player-owned_ports_voyage_calculator)
 - [Kags' Player Owned Ports Encyclopedia V7](https://runescape.wiki/w/User:Kags)
+- [Jasper72 — Player Owned Ports as Easy as Possible](https://www.youtube.com/watch?v=2QliZmT1T0I)
+- [ChevalricRS — The Ultimate Player Owned Ports Guide](https://www.youtube.com/watch?v=3OU62tJaTkg)
 
 The Crew Roster screenshot was used as a development reference and is not included in this repository.
 
