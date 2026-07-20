@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Ports Efficiency icon">
+  <defs><linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#2c7a87"/><stop offset="1" stop-color="#123941"/></linearGradient></defs>
+  <rect width="64" height="64" rx="13" fill="#10262a"/>
+  <path d="M8 45c9-7 15 7 24 0s15 7 24 0v10H8z" fill="url(#sea)"/>
+  <path d="M31 9v31M18 36h28L39 49H24z" fill="none" stroke="#e2b864" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M33 12l14 19H33z" fill="#e8d6a0"/><path d="M29 16L18 31h11z" fill="#b85645"/>
+  <circle cx="48" cy="14" r="7" fill="#1d4f57" stroke="#e2b864" stroke-width="2"/><path d="M45 14h6M48 11v6" stroke="#fff" stroke-width="2"/>
+</svg>

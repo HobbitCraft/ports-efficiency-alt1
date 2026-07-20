@@ -1,0 +1,22 @@
+{
+  "appName": "Ports Efficiency",
+  "description": "Scans your Player-owned Ports roster and finds the strongest available captain and crew for a selected voyage.",
+  "appUrl": "./index.html",
+  "configUrl": "./appconfig.json",
+  "iconUrl": "./assets/icon.svg",
+  "defaultWidth": 430,
+  "defaultHeight": 700,
+  "minWidth": 360,
+  "minHeight": 520,
+  "maxWidth": 720,
+  "maxHeight": 1000,
+  "requestHandlers": [],
+  "activators": [
+    "Crew Roster",
+    "Player-owned port",
+    "Morale",
+    "Combat",
+    "Seafaring"
+  ],
+  "permissions": "pixel,overlay"
+}

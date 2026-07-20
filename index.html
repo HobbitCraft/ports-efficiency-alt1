@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#14272a">
+  <title>Ports Efficiency</title>
+  <link rel="icon" href="./assets/icon.svg">
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="./app.bundle.js"></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <img src="./assets/icon.svg" alt="" width="48" height="48">
+      <div>
+        <p class="eyebrow">Player-owned Ports</p>
+        <h1>Ports Efficiency</h1>
+      </div>
+      <button id="optimize-button" class="primary compact" type="button">Optimise</button>
+    </header>
+
+    <div id="status" class="status" data-kind="info" role="status" aria-live="polite">
+      <span class="status-dot"></span>
+      <span id="status-text">Ready. Select a voyage and save your roster.</span>
+    </div>
+
+    <nav class="tabs" aria-label="Ports Efficiency sections">
+      <button type="button" class="tab active" data-tab="voyage">Voyage</button>
+      <button type="button" class="tab" data-tab="scan">Scan crew</button>
+      <button type="button" class="tab" data-tab="roster">Roster</button>
+      <button type="button" class="tab" data-tab="settings">Settings</button>
+    </nav>
+
+    <section id="tab-voyage" class="tab-panel active">
+      <div class="section-heading">
+        <div>
+          <p class="step">1 · Selected voyage</p>
+          <h2>Adversity to beat</h2>
+        </div>
+      </div>
+      <div class="field-grid">
+        <label class="wide">Voyage name<input id="voyage-name" type="text" maxlength="80"></label>
+        <label><span class="stat morale">Morale</span><input id="voyage-morale" type="number" min="0" step="1"></label>
+        <label><span class="stat combat">Combat</span><input id="voyage-combat" type="number" min="0" step="1"></label>
+        <label><span class="stat seafaring">Seafaring</span><input id="voyage-seafaring" type="number" min="0" step="1"></label>
+        <label>Command Centre<select id="command-centre"><option value="0">None</option><option value="1">Tier 1 (3%)</option><option value="2">Tier 2 (7%)</option><option value="3">Tier 3 (10%)</option></select></label>
+      </div>
+      <label class="check-row"><input id="reward-voyage" type="checkbox"> This voyage gives resources or trade goods (merchant can help)</label>
+
+      <div class="divider"></div>
+      <div class="section-heading">
+        <div><p class="step">2 · Current ship</p><h2>Ship contribution</h2></div>
+      </div>
+      <p class="hint">Enter the ship, fitted parts, and port-building stats before adding captain and crew.</p>
+      <div class="field-grid">
+        <label class="wide">Ship name<input id="ship-name" type="text" maxlength="60"></label>
+        <label><span class="stat morale">Morale</span><input id="ship-morale" type="number" min="0"></label>
+        <label><span class="stat combat">Combat</span><input id="ship-combat" type="number" min="0"></label>
+        <label><span class="stat seafaring">Seafaring</span><input id="ship-seafaring" type="number" min="0"></label>
+        <label>Speed<input id="ship-speed" type="number" min="0"></label>
+      </div>
+
+      <article id="result-card" class="result-card empty" aria-live="polite">
+        <div id="result-empty">
+          <div class="result-mark">%</div>
+          <h2>No setup calculated yet</h2>
+          <p>Save at least one captain and five crew, then press Alt+1 or Optimise.</p>
+        </div>
+        <div id="result-content" hidden></div>
+      </article>
+    </section>
+
+    <section id="tab-scan" class="tab-panel">
+      <div class="section-heading">
+        <div><p class="step">Crew Roster reader</p><h2>Capture and identify icons</h2></div>
+        <button id="scan-button" class="primary" type="button">Scan screen</button>
+      </div>
+      <div class="callout">
+        <strong>Open Ports → Crew Roster first.</strong> At 100% interface scaling the app can use the default layout. If the slots miss, arm calibration, hover the centre of the first captain icon, and press Alt+1.
+      </div>
+      <div class="scan-actions">
+        <button id="calibrate-button" type="button">Arm Alt+1 calibration</button>
+        <label>UI scale <select id="ui-scale"><option value="0.8">80%</option><option value="0.9">90%</option><option value="1" selected>100%</option><option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option><option value="1.4">140%</option></select></label>
+      </div>
+      <p id="scan-summary" class="hint">No scan in this session.</p>
+      <div id="scan-results" class="scan-results"></div>
+      <button id="save-scan-button" class="primary full" type="button" hidden>Save reviewed roster</button>
+    </section>
+
+    <section id="tab-roster" class="tab-panel">
+      <div class="section-heading">
+        <div><p class="step">Saved locally</p><h2>Available captains and crew</h2></div>
+        <div class="button-row">
+          <button id="add-captain-button" type="button">Add captain</button>
+          <button id="add-crew-button" type="button">Add crew</button>
+        </div>
+      </div>
+      <p class="hint">Exact-stat overrides are optional and should include personal bonuses or traits visible in game.</p>
+      <div id="roster-list" class="roster-list"></div>
+    </section>
+
+    <section id="tab-settings" class="tab-panel">
+      <h2>Optimisation preferences</h2>
+      <label class="check-row"><input id="prefer-merchant" type="checkbox"> Prefer a merchant on reward voyages when success chance is tied</label>
+      <label class="check-row"><input id="train-lower-levels" type="checkbox"> At 100%, prefer lower-level crew that can still succeed</label>
+      <div class="divider"></div>
+      <h2>Backup</h2>
+      <div class="button-row">
+        <button id="export-button" type="button">Export JSON</button>
+        <button id="import-button" type="button">Import JSON</button>
+        <input id="import-file" type="file" accept="application/json" hidden>
+      </div>
+      <div class="divider"></div>
+      <h2>Method and sources</h2>
+      <p class="hint">Success is the lowest of Morale, Combat, and Seafaring percentages. Crew levels scale base stats linearly to double at level 10. Solidarity is calculated from unique crew types plus the captain. The app never clicks or changes RuneScape.</p>
+      <ul class="source-list">
+        <li><a href="https://runescape.wiki/w/Player-owned_port/Captains_and_crew" target="_blank" rel="noreferrer">RuneScape Wiki: captains and crew</a></li>
+        <li><a href="https://runescape.wiki/w/Player-owned_port/Strategies" target="_blank" rel="noreferrer">RuneScape Wiki: Ports strategies</a></li>
+        <li><a href="https://runescape.wiki/w/User:Kags" target="_blank" rel="noreferrer">Kags' Player Owned Ports Encyclopedia V7</a></li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
