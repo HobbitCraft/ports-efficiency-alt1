@@ -7,7 +7,7 @@
   <title>Ports Efficiency</title>
   <link rel="icon" href="./assets/icon.svg">
   <link rel="stylesheet" href="./style.css">
-  <script defer src="./app.bundle.js?v=20260721-4"></script>
+  <script defer src="./app.bundle.js?v=20260721-5"></script>
 </head>
 <body>
   <main class="app-shell">
@@ -39,11 +39,10 @@
           <p class="step">1 · Selected voyage</p>
           <h2>Adversity to beat</h2>
         </div>
-        <button id="scan-voyage-button" class="primary" type="button">Scan voyage</button>
+        <button id="scan-adversity-button" class="primary" type="button">Scan adversity</button>
       </div>
-      <p class="hint">Open the Voyage List, select a voyage, then scan. The five supplied voyage layouts are recognised at 100% interface scale; other voyages can still be entered manually.</p>
+      <p class="hint">Open the Voyage List, select any voyage, then scan. The visible Adversity values are read directly at 100% interface scale; they can also be entered manually.</p>
       <div class="field-grid">
-        <label class="wide">Voyage name<input id="voyage-name" type="text" maxlength="80"></label>
         <label><span class="stat morale">Morale</span><input id="voyage-morale" type="number" min="0" step="1"></label>
         <label><span class="stat combat">Combat</span><input id="voyage-combat" type="number" min="0" step="1"></label>
         <label><span class="stat seafaring">Seafaring</span><input id="voyage-seafaring" type="number" min="0" step="1"></label>

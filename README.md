@@ -31,11 +31,11 @@ Crew stats use the base value plus exactly 10% of that base for each level; boos
 
 ## Optimise a voyage
 
-1. Open the Voyage List and select one of the five captured voyage layouts: **Siege Mentality**, **For the Good of All**, **Troubled Waters**, **The Whale Whisperer**, or **A Joint Acquisition**.
-2. Click **Scan voyage** to fill its Morale, Combat, and Seafaring adversity. Other voyages can still be entered manually.
+1. Open the Voyage List and select any voyage.
+2. Click **Scan adversity** to read its visible Morale, Combat, and Seafaring requirements directly. Values can still be entered manually.
 3. In **Ship unlocks**, mark every ram/figurehead, deck item/rigging, hull, and rudder you own, then select the shipwright currently built in your port.
 4. Select the Command Centre tier. Leave the resources/trade-goods checkbox enabled for reward voyages; those setups always include an available merchant.
-5. Press Alt+1 or click **Optimise**. Alt+1 also tries to scan a visible supported voyage before calculating.
+5. Press Alt+1 or click **Optimise**. Alt+1 also tries to read a visible Adversity panel before calculating.
 
 The app maximises the lowest required stat percentage across crew and every non-dominated unlocked ship setup. It includes the two deck hotspots, shipwright total-stat multipliers, Solidarity, Command Centre reductions, mandatory merchants on marked reward voyages, and optional lower-level crew training. Once capped success is tied, it favours the setup strongest in the voyage's required stats so a specialist captain is not displaced by an unrelated captain.
 
