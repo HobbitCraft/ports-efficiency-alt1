@@ -7,7 +7,7 @@
   <title>Ports Efficiency</title>
   <link rel="icon" href="./assets/icon.svg">
   <link rel="stylesheet" href="./style.css">
-  <script defer src="./app.bundle.js?v=20260721-3"></script>
+  <script defer src="./app.bundle.js?v=20260721-4"></script>
 </head>
 <body>
   <main class="app-shell">
@@ -49,21 +49,7 @@
         <label><span class="stat seafaring">Seafaring</span><input id="voyage-seafaring" type="number" min="0" step="1"></label>
         <label>Command Centre<select id="command-centre"><option value="0">None</option><option value="1">Tier 1 (3%)</option><option value="2">Tier 2 (7%)</option><option value="3">Tier 3 (10%)</option></select></label>
       </div>
-      <label class="check-row"><input id="reward-voyage" type="checkbox"> This voyage gives resources or trade goods (merchant can help)</label>
-
-      <div class="divider"></div>
-      <div class="section-heading">
-        <div><p class="step">2 · Current ship</p><h2>Ship contribution</h2></div>
-      </div>
-      <p id="ship-mode-hint" class="hint">Ship contribution is selected automatically from Ship unlocks.</p>
-      <label class="check-row"><input id="use-ship-unlocks" type="checkbox"> Automatically choose the best setup from my unlocked ship parts</label>
-      <div class="field-grid">
-        <label class="wide">Ship name<input id="ship-name" type="text" maxlength="60"></label>
-        <label><span class="stat morale">Morale</span><input id="ship-morale" type="number" min="0"></label>
-        <label><span class="stat combat">Combat</span><input id="ship-combat" type="number" min="0"></label>
-        <label><span class="stat seafaring">Seafaring</span><input id="ship-seafaring" type="number" min="0"></label>
-        <label>Speed<input id="ship-speed" type="number" min="0"></label>
-      </div>
+      <label class="check-row"><input id="reward-voyage" type="checkbox" checked> This voyage gives resources or trade goods (merchant can help)</label>
 
       <article id="result-card" class="result-card empty" aria-live="polite">
         <div id="result-empty">
@@ -109,7 +95,6 @@
 
     <section id="tab-settings" class="tab-panel">
       <h2>Optimisation preferences</h2>
-      <label class="check-row"><input id="prefer-merchant" type="checkbox"> Prefer a merchant on reward voyages when success chance is tied</label>
       <label class="check-row"><input id="train-lower-levels" type="checkbox"> At 100%, prefer lower-level crew that can still succeed</label>
       <div class="divider"></div>
       <h2>Backup</h2>
