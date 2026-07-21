@@ -7,7 +7,7 @@
   <title>Ports Efficiency</title>
   <link rel="icon" href="./assets/icon.svg">
   <link rel="stylesheet" href="./style.css">
-  <script defer src="./app.bundle.js?v=20260721-5"></script>
+  <script defer src="./app.bundle.js?v=20260721-6"></script>
 </head>
 <body>
   <main class="app-shell">
@@ -17,44 +17,70 @@
         <p class="eyebrow">Player-owned Ports</p>
         <h1>Ports Efficiency</h1>
       </div>
-      <button id="optimize-button" class="primary compact" type="button">Optimise</button>
+      <button id="settings-button" class="icon-button" type="button" aria-label="Open settings" title="Settings">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path d="M19.4 13a7.9 7.9 0 0 0 0-2l2-1.6-2-3.4-2.5 1a7.6 7.6 0 0 0-1.7-1L15 3.3h-4L10.6 6a7.6 7.6 0 0 0-1.7 1L6.4 6l-2 3.4 2 1.6a7.9 7.9 0 0 0 0 2l-2 1.6 2 3.4 2.5-1a7.6 7.6 0 0 0 1.7 1l.4 2.7h4l.4-2.7a7.6 7.6 0 0 0 1.7-1l2.5 1 2-3.4-2-1.6ZM13 15.5A3.5 3.5 0 1 1 13 8a3.5 3.5 0 0 1 0 7.5Z" fill="currentColor"/></svg>
+      </button>
     </header>
 
     <div id="status" class="status" data-kind="info" role="status" aria-live="polite">
       <span class="status-dot"></span>
-      <span id="status-text">Ready. Select a voyage and save your roster.</span>
+      <span id="status-text">Ready. Complete the four setup steps, then scan a voyage.</span>
     </div>
 
     <nav class="tabs" aria-label="Ports Efficiency sections">
-      <button type="button" class="tab active" data-tab="voyage">Voyage</button>
+      <button type="button" class="tab active" data-tab="optimise">Optimise</button>
       <button type="button" class="tab" data-tab="scan">Scan crew</button>
       <button type="button" class="tab" data-tab="roster">Roster</button>
-      <button type="button" class="tab" data-tab="settings">Settings</button>
       <button type="button" class="tab" data-tab="ship-unlocks">Ship unlocks</button>
     </nav>
 
-    <section id="tab-voyage" class="tab-panel active">
+    <section id="tab-optimise" class="tab-panel active">
       <div class="section-heading">
         <div>
-          <p class="step">1 · Selected voyage</p>
-          <h2>Adversity to beat</h2>
+          <p class="step">Setup checklist</p>
+          <h2>Optimise your next voyage</h2>
         </div>
-        <button id="scan-adversity-button" class="primary" type="button">Scan adversity</button>
       </div>
-      <p class="hint">Open the Voyage List, select any voyage, then scan. The visible Adversity values are read directly at 100% interface scale; they can also be entered manually.</p>
-      <div class="field-grid">
-        <label><span class="stat morale">Morale</span><input id="voyage-morale" type="number" min="0" step="1"></label>
-        <label><span class="stat combat">Combat</span><input id="voyage-combat" type="number" min="0" step="1"></label>
-        <label><span class="stat seafaring">Seafaring</span><input id="voyage-seafaring" type="number" min="0" step="1"></label>
-        <label>Command Centre<select id="command-centre"><option value="0">None</option><option value="1">Tier 1 (3%)</option><option value="2">Tier 2 (7%)</option><option value="3">Tier 3 (10%)</option></select></label>
+      <p class="hint">Complete these once, then scan each new voyage to calculate the best crew, captain, and ship parts automatically.</p>
+
+      <div class="workflow-list">
+        <article class="workflow-item">
+          <span class="workflow-number">1</span>
+          <div><h2>Scan crew</h2><p>Open Ports → Crew Roster and keep the entire roster window visible so every portrait and level can be read.</p></div>
+          <button id="workflow-scan-crew" type="button">Scan crew</button>
+        </article>
+        <article class="workflow-item">
+          <span class="workflow-number">2</span>
+          <div><h2>Fill in captains</h2><p>Copy the displayed Morale, Combat, Seafaring, and Speed totals for each of your four captains.</p></div>
+          <button id="workflow-captains" type="button">Open roster</button>
+        </article>
+        <article class="workflow-item">
+          <span class="workflow-number">3</span>
+          <div><h2>Fill out ship unlocks</h2><p>Select your Fort Forinthy Command Centre, current port shipwright, and every ship part you have unlocked.</p></div>
+          <button id="workflow-ship-unlocks" type="button">Ship unlocks</button>
+        </article>
+        <article class="workflow-item final-step">
+          <span class="workflow-number">4</span>
+          <div><h2>Scan your voyage</h2><p>Open the Voyage List, select a voyage, and leave its Adversity panel visible. Scanning immediately calculates the recommended setup.</p></div>
+          <button id="scan-adversity-button" class="primary" type="button">Scan voyage</button>
+        </article>
       </div>
-      <label class="check-row"><input id="reward-voyage" type="checkbox" checked> This voyage gives resources or trade goods (merchant can help)</label>
+
+      <div class="adversity-fields" aria-label="Scanned adversity values">
+        <p class="step">Scanned adversity</p>
+        <div class="field-grid">
+          <label><span class="stat morale">Morale</span><input id="voyage-morale" type="number" min="0" step="1"></label>
+          <label><span class="stat combat">Combat</span><input id="voyage-combat" type="number" min="0" step="1"></label>
+          <label><span class="stat seafaring">Seafaring</span><input id="voyage-seafaring" type="number" min="0" step="1"></label>
+        </div>
+      </div>
+      <label class="check-row"><input id="reward-voyage" type="checkbox" checked><span>This voyage gives resources or trade goods (merchant can help)</span></label>
 
       <article id="result-card" class="result-card empty" aria-live="polite">
         <div id="result-empty">
           <div class="result-mark">%</div>
           <h2>No setup calculated yet</h2>
-          <p>Save at least one captain and five crew, then press Alt+1 or Optimise.</p>
+          <p>Complete the setup steps above, then scan a voyage.</p>
         </div>
         <div id="result-content" hidden></div>
       </article>
@@ -83,20 +109,11 @@
       </div>
       <p class="hint">Enter the current totals shown in Ports. These values can include captain level boosts, personal bonuses, and traits.</p>
       <div id="captain-list" class="captain-list"></div>
-      <div class="divider"></div>
-      <div class="section-heading">
-        <div><p class="step">Scanned and saved locally</p><h2>Available crew</h2></div>
-        <button id="add-crew-button" type="button">Add crew manually</button>
-      </div>
-      <p class="hint">Each level adds exactly 10% of base stats. Optional exact overrides can include personal bonuses or traits visible in game.</p>
-      <div id="roster-list" class="roster-list"></div>
     </section>
 
     <section id="tab-settings" class="tab-panel">
-      <h2>Optimisation preferences</h2>
-      <label class="check-row"><input id="train-lower-levels" type="checkbox"> At 100%, prefer lower-level crew that can still succeed</label>
-      <div class="divider"></div>
-      <h2>Backup</h2>
+      <div class="section-heading"><div><p class="step">Application</p><h2>Settings</h2></div></div>
+      <h2>Roster backup</h2>
       <div class="button-row">
         <button id="export-button" type="button">Export JSON</button>
         <button id="import-button" type="button">Import JSON</button>
@@ -120,6 +137,7 @@
           <div><p class="step">Ship setup library</p><h2 id="ship-unlocks-title">Your unlocked upgrades</h2></div>
         </div>
         <p class="hint">Mark every part you own. The optimiser can equip one ram or figurehead, two matching or different deck items, one hull, and the fastest unlocked rudder. Starting parts are always available.</p>
+        <label class="shipwright-field">Fort Forinthy Command Centre<select id="command-centre"><option value="0">None</option><option value="1">Tier 1 (3% reduction)</option><option value="2">Tier 2 (7% reduction)</option><option value="3">Tier 3 (10% reduction)</option></select></label>
         <label class="shipwright-field">Current shipwright<select id="shipwright-select"></select></label>
 
         <div class="unlock-section">
