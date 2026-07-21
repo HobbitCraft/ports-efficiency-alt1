@@ -2,13 +2,14 @@
 
 An Alt1 app for finding an efficient ship setup for Player-owned Ports voyages in RuneScape 3.
 
-Enter the selected voyage's adversity and current ship stats, then press Alt+1 or **Optimise**. The app checks the available captain and crew combinations saved in your roster and shows the best result.
+Scan a supported selected voyage or enter its adversity, record the ship parts you own, then press Alt+1 or **Optimise**. The app checks your available captain, crew, and ship-upgrade combinations and shows the best complete setup.
 
 ## Requirements
 
 - [Alt1 Toolkit](https://runeapps.org/alt1)
 - Alt1's **Screen pixels** and **Overlay** permissions enabled for the app
 - The Player-owned Ports Crew Roster visible when scanning crew
+- The complete Voyage List visible at 100% interface scale when scanning a voyage
 
 ## Install
 
@@ -21,7 +22,7 @@ Open this appconfig URL in Alt1:
 1. Open the Player-owned Ports **Crew Roster**.
 2. Keep the complete Crew Roster interface visible, then open **Scan crew** and select the matching RuneScape interface scale.
 3. Click **Scan screen**.
-4. The app searches the full RuneScape capture for the roster, then matches known portraits, reads the bottom-right crew levels, and records top-left ship assignments. Check uncertain matches before saving.
+4. The app searches the full RuneScape capture for the roster, then matches known portraits, reads the bottom-right crew levels, and records top-left ship assignments. The compact review grid shows every icon, level, and calculated M/C/S total together; check highlighted matches before saving.
 5. If automatic location fails, use **Fallback: calibrate with Alt+1**, hover the centre of the first captain icon, and press Alt+1.
 6. In **Roster**, enter the current Morale, Combat, Seafaring, and Speed totals for each of your four captains.
 7. Mark unavailable crew or enter optional exact-stat overrides for visible bonuses and traits.
@@ -30,12 +31,13 @@ Crew stats use the base value plus exactly 10% of that base for each level; boos
 
 ## Optimise a voyage
 
-1. Enter the voyage's Morale, Combat, and Seafaring adversity.
-2. Enter the ship contribution from fitted parts and port buildings, excluding captain and crew.
-3. Select the Command Centre tier and whether the voyage gives resources or trade goods.
-4. Press Alt+1 or click **Optimise**.
+1. Open the Voyage List and select one of the five captured voyage layouts: **Siege Mentality**, **For the Good of All**, **Troubled Waters**, **The Whale Whisperer**, or **A Joint Acquisition**.
+2. Click **Scan voyage** to fill its Morale, Combat, and Seafaring adversity. Other voyages can still be entered manually.
+3. In **Ship unlocks**, mark every ram/figurehead, deck item/rigging, hull, and rudder you own, then select the shipwright currently built in your port.
+4. Keep **Automatically choose the best setup from my unlocked ship parts** enabled, select the Command Centre tier, and choose whether the voyage gives resources or trade goods.
+5. Press Alt+1 or click **Optimise**. Alt+1 also tries to scan a visible supported voyage before calculating.
 
-The app maximises the lowest required stat percentage. Solidarity, Command Centre reductions, merchant tie-breaking, and optional lower-level crew training are included.
+The app maximises the lowest required stat percentage across crew and every non-dominated unlocked ship setup. It includes the two deck hotspots, shipwright total-stat multipliers, Solidarity, Command Centre reductions, merchant tie-breaking, and optional lower-level crew training. Disable automatic ship unlocks to use manual ship totals instead.
 
 Roster data and preferences stay in Alt1 browser storage. Use **Settings → Export JSON** before clearing that storage or changing the app host.
 

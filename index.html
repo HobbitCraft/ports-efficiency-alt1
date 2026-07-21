@@ -7,7 +7,7 @@
   <title>Ports Efficiency</title>
   <link rel="icon" href="./assets/icon.svg">
   <link rel="stylesheet" href="./style.css">
-  <script defer src="./app.bundle.js?v=20260721-2"></script>
+  <script defer src="./app.bundle.js?v=20260721-3"></script>
 </head>
 <body>
   <main class="app-shell">
@@ -30,6 +30,7 @@
       <button type="button" class="tab" data-tab="scan">Scan crew</button>
       <button type="button" class="tab" data-tab="roster">Roster</button>
       <button type="button" class="tab" data-tab="settings">Settings</button>
+      <button type="button" class="tab" data-tab="ship-unlocks">Ship unlocks</button>
     </nav>
 
     <section id="tab-voyage" class="tab-panel active">
@@ -38,7 +39,9 @@
           <p class="step">1 · Selected voyage</p>
           <h2>Adversity to beat</h2>
         </div>
+        <button id="scan-voyage-button" class="primary" type="button">Scan voyage</button>
       </div>
+      <p class="hint">Open the Voyage List, select a voyage, then scan. The five supplied voyage layouts are recognised at 100% interface scale; other voyages can still be entered manually.</p>
       <div class="field-grid">
         <label class="wide">Voyage name<input id="voyage-name" type="text" maxlength="80"></label>
         <label><span class="stat morale">Morale</span><input id="voyage-morale" type="number" min="0" step="1"></label>
@@ -52,7 +55,8 @@
       <div class="section-heading">
         <div><p class="step">2 · Current ship</p><h2>Ship contribution</h2></div>
       </div>
-      <p class="hint">Enter the ship, fitted parts, and port-building stats before adding captain and crew.</p>
+      <p id="ship-mode-hint" class="hint">Ship contribution is selected automatically from Ship unlocks.</p>
+      <label class="check-row"><input id="use-ship-unlocks" type="checkbox"> Automatically choose the best setup from my unlocked ship parts</label>
       <div class="field-grid">
         <label class="wide">Ship name<input id="ship-name" type="text" maxlength="60"></label>
         <label><span class="stat morale">Morale</span><input id="ship-morale" type="number" min="0"></label>
@@ -124,6 +128,33 @@
         <li><a href="https://www.youtube.com/watch?v=2QliZmT1T0I" target="_blank" rel="noreferrer">Jasper72: Player Owned Ports as Easy as Possible</a></li>
         <li><a href="https://www.youtube.com/watch?v=3OU62tJaTkg" target="_blank" rel="noreferrer">ChevalricRS: Ultimate Player Owned Ports Guide</a></li>
       </ul>
+    </section>
+
+    <section id="tab-ship-unlocks" class="tab-panel" aria-labelledby="ship-unlocks-title">
+      <div id="ship-unlocks-panel">
+        <div class="section-heading">
+          <div><p class="step">Ship setup library</p><h2 id="ship-unlocks-title">Your unlocked upgrades</h2></div>
+        </div>
+        <p class="hint">Mark every part you own. The optimiser can equip one ram or figurehead, two matching or different deck items, one hull, and the fastest unlocked rudder. Starting parts are always available.</p>
+        <label class="shipwright-field">Current shipwright<select id="shipwright-select"></select></label>
+
+        <div class="unlock-section">
+          <h2>Rams and figureheads</h2>
+          <div id="figurehead-unlocks" class="unlock-grid"></div>
+        </div>
+        <div class="unlock-section">
+          <h2>Deck items and rigging</h2>
+          <div id="deck-unlocks" class="unlock-grid"></div>
+        </div>
+        <div class="unlock-section">
+          <h2>Hulls</h2>
+          <div id="hull-unlocks" class="unlock-grid"></div>
+        </div>
+        <div class="unlock-section">
+          <h2>Rudders</h2>
+          <div id="rudder-unlocks" class="unlock-grid"></div>
+        </div>
+      </div>
     </section>
   </main>
 </body>

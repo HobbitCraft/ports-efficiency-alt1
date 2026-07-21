@@ -49,8 +49,8 @@ button.danger { border-color: #784545; color: #ffc4c4; }
 .status[data-kind="success"] .status-dot { background: #6ac98d; box-shadow: 0 0 9px #6ac98d; }
 .status[data-kind="error"] .status-dot { background: var(--danger); box-shadow: 0 0 9px var(--danger); }
 
-.tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin-bottom: 14px; border-bottom: 1px solid var(--line); }
-.tab { min-width: 0; border: 0; border-bottom: 2px solid transparent; border-radius: 5px 5px 0 0; background: transparent; padding: 9px 4px; color: var(--muted); font-size: .8rem; }
+.tabs { display: grid; grid-template-columns: repeat(5, 1fr); gap: 3px; margin-bottom: 14px; border-bottom: 1px solid var(--line); }
+.tab { min-width: 0; border: 0; border-bottom: 2px solid transparent; border-radius: 5px 5px 0 0; background: transparent; padding: 9px 2px; color: var(--muted); font-size: .72rem; }
 .tab.active { border-bottom-color: var(--gold); color: var(--text); background: #1b303588; }
 .tab-panel { display: none; }
 .tab-panel.active { display: block; }
@@ -61,6 +61,7 @@ button.danger { border-color: #784545; color: #ffc4c4; }
 .field-grid .wide { grid-column: 1 / -1; }
 label { display: grid; gap: 5px; color: var(--muted); font-size: .78rem; }
 input, select { min-width: 0; width: 100%; border: 1px solid var(--line); border-radius: 6px; background: #091316; padding: 8px 9px; color: var(--text); }
+input:disabled { opacity: .55; }
 .stat { font-weight: 800; }
 .stat.morale { color: var(--morale); }
 .stat.combat { color: var(--combat); }
@@ -88,13 +89,21 @@ input, select { min-width: 0; width: 100%; border: 1px solid var(--line); border
 .callout { margin: 12px 0; border-left: 3px solid var(--gold); background: #1b2d30; padding: 10px 12px; color: var(--muted); font-size: .8rem; line-height: 1.45; }
 .scan-actions, .button-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: end; }
 .scan-actions label { width: 112px; }
-.scan-results, .roster-list { display: grid; gap: 9px; }
-.scan-card { display: grid; grid-template-columns: auto 48px 1fr; gap: 9px; align-items: center; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); padding: 9px; }
-.scan-card > input { width: auto; }
-.scan-card img { width: 46px; height: 46px; object-fit: pixelated; border: 1px solid #85672f; border-radius: 4px; }
-.scan-card .scan-fields { display: grid; grid-template-columns: 82px 1fr; gap: 6px; }
-.scan-card .profile-field { grid-column: 1 / -1; }
-.confidence { color: #f0c77c; font-size: .7rem; }
+.roster-list { display: grid; gap: 9px; }
+.scan-results { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 5px; }
+.scan-card { position: relative; display: grid; justify-items: center; gap: 4px; min-width: 0; border: 1px solid var(--line); border-radius: 7px; background: var(--panel); padding: 5px 3px; }
+.scan-card.review { border-color: #c9903f; box-shadow: inset 0 0 0 1px #c9903f55; }
+.scan-check { position: absolute; z-index: 1; top: 2px; left: 2px; }
+.scan-check input { width: 13px; height: 13px; margin: 0; accent-color: var(--gold); }
+.scan-portrait { position: relative; width: 34px; height: 34px; }
+.scan-card img { width: 34px; height: 34px; object-fit: pixelated; border: 1px solid #85672f; border-radius: 4px; }
+.scan-portrait span { position: absolute; right: -4px; bottom: -3px; border: 1px solid #8a6b2e; border-radius: 4px; background: #0b1518e8; padding: 0 2px; color: var(--gold-2); font-size: .52rem; font-weight: 800; }
+.scan-profile { width: 100%; padding: 3px 1px; font-size: .56rem; }
+.scan-level-row { display: flex; gap: 2px; align-items: center; font-size: .58rem; }
+.scan-level-row .scan-level { width: 28px; padding: 2px; text-align: center; font-size: .62rem; }
+.scan-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; gap: 1px; text-align: center; font-size: .5rem; }
+.scan-stat-row span { overflow: hidden; white-space: nowrap; }
+.scan-stat-row .morale { color: var(--morale); }.scan-stat-row .combat { color: var(--combat); }.scan-stat-row .seafaring { color: var(--seafaring); }
 
 .captain-list { display: grid; gap: 9px; }
 .captain-card { border: 1px solid #806632; border-radius: 8px; background: linear-gradient(145deg, #1b3034, #101d20); padding: 10px; }
@@ -111,6 +120,19 @@ input, select { min-width: 0; width: 100%; border: 1px solid var(--line); border
 .roster-edit .wide { grid-column: 1 / -1; }
 .exact-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 7px; }
 .source-list { padding-left: 20px; color: var(--muted); font-size: .8rem; line-height: 1.8; }
+.ship-result { margin-top: 10px; border: 1px solid var(--line); border-radius: 7px; background: #0b171aaa; padding: 8px; color: var(--gold-2); font-size: .75rem; }
+.ship-result p { margin: 7px 0 0; color: var(--muted); line-height: 1.45; }
+.shipwright-field { margin: 12px 0 16px; }
+.unlock-section { margin-top: 16px; }
+.unlock-section h2 { margin-bottom: 7px; color: var(--gold-2); }
+.unlock-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 5px; }
+.unlock-option { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px; align-items: start; border: 1px solid var(--line); border-radius: 6px; background: var(--panel); padding: 6px; cursor: pointer; }
+.unlock-option:has(input:checked) { border-color: #9b7535; background: #213437; }
+.unlock-option input { width: auto; margin: 2px 0 0; accent-color: var(--gold); }
+.unlock-option strong, .unlock-option small { display: block; }
+.unlock-option strong { color: var(--text); font-size: .68rem; line-height: 1.2; }
+.unlock-option small { margin-top: 2px; color: var(--muted); font-size: .58rem; line-height: 1.25; }
+.unlock-option.starting { opacity: .8; }
 
 @media (max-width: 640px) {
   body { overflow-x: hidden; }
@@ -124,5 +146,8 @@ input, select { min-width: 0; width: 100%; border: 1px solid var(--line); border
 @media (max-width: 390px) {
   .app-shell { padding: 11px; }
   .app-header { grid-template-columns: 42px minmax(0, 1fr); }.app-header img { width: 42px; height: 42px; }
-  .scan-card { grid-template-columns: auto 42px 1fr; }.scan-card img { width: 40px; height: 40px; }
+  .tab { font-size: .64rem; }
+  .scan-results { gap: 3px; }
+  .scan-card { padding-inline: 2px; }
+  .unlock-grid { grid-template-columns: 1fr; }
 }
